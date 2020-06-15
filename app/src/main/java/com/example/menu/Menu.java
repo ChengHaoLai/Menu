@@ -2,6 +2,8 @@ package com.example.menu;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -62,12 +64,23 @@ public class Menu extends Activity {
         cancel = (Button) findViewById(R.id.cancel);
         imageView = (ImageView) findViewById(R.id.image_view);
     }
-    //待編輯
-    class EditTextListener implements EditText.OnKeyListener{
+    //EditTextListener
+    class EditTextListener implements TextWatcher {
+
         @Override
-        public boolean onKey(View v, int keyCode, KeyEvent event) {
-            return false;
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
         }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            setPocket();
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }//EditTextListener
     }
     //RadioGroupListener
     class RadioGroupListener implements RadioGroup.OnCheckedChangeListener {
@@ -167,6 +180,8 @@ public class Menu extends Activity {
 
     //setListener
     public void setListener() {
+        EditTextListener editTextListener=new EditTextListener();
+        edit_name.addTextChangedListener(editTextListener);
         RadioGroupListener radioGroupListener = new RadioGroupListener();
         sex.setOnCheckedChangeListener(radioGroupListener);
         CheckBoxListener checkBoxListener = new CheckBoxListener();
