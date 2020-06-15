@@ -118,6 +118,7 @@ public class Menu extends Activity {
 
         @Override
         public void onClick(View v) {
+
             switch (v.getId()) {
                 case R.id.all:
                     cheese.setChecked(true);
@@ -152,7 +153,7 @@ public class Menu extends Activity {
                             }
                         }
                     }
-                    if (cheese.isChecked()&&tomato.isChecked()&&vegetables.isChecked()){
+                    if (!cheese.isChecked()&&!tomato.isChecked()&&!vegetables.isChecked()){
                         for (int i = 0; i < quantity; i++){
                           linkedHashSet.add(i+1);
                         }
