@@ -95,7 +95,8 @@ public class Menu extends Activity {
             }
         }
     }//RadioGroupListener
-
+    //測試
+    {}
     //CheckBoxListener
     class CheckBoxListener implements CompoundButton.OnCheckedChangeListener {
         @Override
